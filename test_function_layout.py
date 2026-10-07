@@ -1,0 +1,28 @@
+"""Compatibility runner for FunctionLayoutTests.
+
+Each test body lives in calibration_test_functions/<test_name>.py.
+Run ``python -m unittest -v test_function_layout``.
+"""
+
+from __future__ import annotations
+
+import unittest
+
+from calibration_test_functions._support import REPOSITORY_ROOT, FUNCTION_DIRECTORY, SUPPORT_MODULES
+from calibration_test_functions.test_function_files_contain_one_same_named_top_level_function import test_function_files_contain_one_same_named_top_level_function as _test_function_files_contain_one_same_named_top_level_function
+from calibration_test_functions.test_legacy_alias_and_direct_imports_share_definitions import test_legacy_alias_and_direct_imports_share_definitions as _test_legacy_alias_and_direct_imports_share_definitions
+from calibration_test_functions.test_repository_paths_and_cli_work_from_another_directory import test_repository_paths_and_cli_work_from_another_directory as _test_repository_paths_and_cli_work_from_another_directory
+from calibration_test_functions.test_optional_partitioner_initializer_is_cached import test_optional_partitioner_initializer_is_cached as _test_optional_partitioner_initializer_is_cached
+
+
+class FunctionLayoutTests(unittest.TestCase):
+    """Bind the extracted functions while retaining the original test IDs."""
+
+    test_function_files_contain_one_same_named_top_level_function = _test_function_files_contain_one_same_named_top_level_function
+    test_legacy_alias_and_direct_imports_share_definitions = _test_legacy_alias_and_direct_imports_share_definitions
+    test_repository_paths_and_cli_work_from_another_directory = _test_repository_paths_and_cli_work_from_another_directory
+    test_optional_partitioner_initializer_is_cached = _test_optional_partitioner_initializer_is_cached
+
+
+if __name__ == "__main__":
+    unittest.main()

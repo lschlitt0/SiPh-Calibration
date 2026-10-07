@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Generated simulation tables, workbooks, traces, figures, and console logs.
+# Keep the output guide; use --results-dir results/<run-name> for experiments.
+/results/*
+!/results/README.md
