@@ -1,7 +1,88 @@
-LICENSE NOT YET SELECTED
+SiPh-Calibration Noncommercial License
 
-No license was found in the supplied current calibration source directory or
-the inspected project files. This file is a placeholder, not a license grant.
+Copyright (c) 2026 Lawrence Schlitt
 
-The rights holder must choose and supply license terms before distribution.
-No author, ownership, or permission statement has been inferred.
+1. Scope
+
+"Software" means the SiPh-Calibration source code and accompanying documentation
+made available by Lawrence Schlitt (the "Licensor") under these terms. Separately
+licensed third-party materials and the associated published paper are not
+covered by this license and remain subject to their respective terms.
+
+2. Noncommercial permission
+
+Subject to these terms, the Licensor grants you a nonexclusive, royalty-free
+copyright license to use, reproduce, modify, and distribute the Software solely
+for noncommercial purposes. Noncommercial purposes include research, teaching,
+study, and personal projects that do not constitute Commercial Use as defined
+below. These permissions apply to the Software in both original and modified
+form.
+
+3. Commercial Use requires prior written permission
+
+This license does not authorize Commercial Use. Before any Commercial Use, you
+must obtain express written permission from Lawrence Schlitt identifying you,
+the authorized use, and any applicable conditions. A separate written agreement may
+authorize uses not granted here; it controls only to the extent expressly
+provided in that agreement. A request for permission, silence, public access to
+the repository, or possession of a copy does not constitute written permission.
+
+"Commercial Use" means use of the Software primarily intended for or directed
+toward commercial advantage or monetary compensation, including:
+
+- use by or on behalf of a for-profit business in its operations, internal
+  research and development, or product evaluation, design, testing, calibration,
+  or validation;
+- incorporation into or operation of a commercial product, service, or hosted
+  offering, whether or not the Software itself is sold or separately charged for;
+- use to provide paid consulting, engineering, calibration, or other services;
+- research conducted to develop a commercial product or service or to fulfill
+  contractual deliverables for a commercial sponsor.
+
+Educational, nonprofit, or government status does not exempt Commercial Use.
+Ordinary academic salaries, tuition, research grants, or publication of research
+results do not by themselves make an otherwise noncommercial activity commercial.
+The activity's purpose and any commercial obligations remain controlling.
+
+4. Copies, modifications, and redistribution
+
+Every distributed copy or substantial portion of the Software must retain this
+license and the applicable copyright and attribution notices. Modified files
+must carry a notice identifying that they have been changed. Redistribution
+must preserve these restrictions on the Software, including the Software as
+incorporated into modified versions; you may not grant recipients Commercial Use
+rights in the Licensor's Software without the Licensor's written authorization.
+Recipients receive permissions in the Licensor's Software directly under these
+terms. This license does not transfer ownership of your original contributions
+to the Licensor or grant the Licensor additional rights in those contributions.
+
+5. Reserved rights
+
+All rights not expressly granted are reserved. No patent or trademark license
+is granted. These terms do not restrict rights you have independently under
+applicable law, including fair use. They do not assert ownership of scientific
+ideas, independently created work, or numerical results merely because the
+Software was used to produce them; Commercial Use of the Software itself still
+requires permission under Section 3.
+
+6. Termination
+
+The permissions granted here terminate automatically if you violate these
+terms. Following termination, further use, reproduction, modification, or
+distribution requiring these permissions must cease unless the Licensor
+reinstates permission in writing. Termination does not affect rights or remedies
+arising from an earlier violation.
+
+7. Warranty and liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED
+"AS IS", WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+THE LICENSOR SHALL NOT BE LIABLE FOR CLAIMS, DAMAGES, OR OTHER LIABILITY
+ARISING FROM THE SOFTWARE OR ITS USE, WHETHER IN CONTRACT, TORT, OR OTHERWISE.
+
+8. Commercial licensing inquiries
+
+Contact Lawrence Schlitt to request written commercial permission. You may open
+a licensing inquiry at https://github.com/lschlitt0/SiPh-Calibration/issues to
+arrange contact. Opening an inquiry does not grant permission.

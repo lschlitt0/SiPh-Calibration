@@ -44,7 +44,7 @@ accuracy, tuning power, or experimental performance.
 | `examples/example_usage.py` | Small seeded mesh and ring example using the existing function interfaces |
 | `requirements.txt` | Required third-party package for the numerical workflows |
 | `results/README.md` | Output locations, overwrite behavior, and generated artifacts |
-| `LICENSE` | License status; an owner decision is required before selecting a license |
+| [LICENSE](LICENSE) | Noncommercial license; commercial use requires prior written permission |
 
 ## Function Index
 
@@ -462,7 +462,20 @@ identifies the paper; no separate software DOI or release version is assigned.
 
 ## License
 
-See [LICENSE](LICENSE). No existing license was identified for the selected code;
-the file records this unresolved owner decision and grants no license. Choose an
-appropriate license after confirming the rights to distribute the code and any
-institutional requirements.
+Copyright (c) 2026 Lawrence Schlitt. The code and accompanying documentation are
+available under the custom [SiPh-Calibration Noncommercial License](LICENSE).
+It permits noncommercial research, teaching, personal use, modification, and
+redistribution subject to its terms.
+
+**Commercial use requires prior express written permission from Lawrence
+Schlitt.** This includes company internal R&D, commercial products and services,
+paid consulting, and research conducted for commercial contractual deliverables.
+An academic or nonprofit affiliation does not exempt commercial use. See the
+license for the full definition and conditions. To arrange contact, open a
+[commercial licensing inquiry](https://github.com/lschlitt0/SiPh-Calibration/issues).
+Submitting an inquiry does not grant permission.
+
+This is source-available software under noncommercial terms, not an OSI-approved
+open-source license. Third-party dependencies and the published IEEE paper retain
+their separate terms. The [citation request](#citation) supports scholarly credit
+and does not replace the license or authorize commercial use.
