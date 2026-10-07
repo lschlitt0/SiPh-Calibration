@@ -1,6 +1,6 @@
 # Generated results
 
-This directory is the default output location for `Calibration_v3.py`. No external
+This directory is the default output location for `Calibration.py`. No external
 measurement data are needed: both device models generate their inputs internally.
 Generated results are excluded from version control; this file is retained.
 
@@ -29,7 +29,7 @@ subdirectory. With only `--results-dir` changed, the secondary paper exports sti
 go to the default `results/paper_data/`. Paths are defined in
 [`calibration_functions/settings.py`](../calibration_functions/settings.py).
 The default results directory remains `results/` at the repository root,
-beside `Calibration_v3.py`. Relative command-line/environment paths are
+beside `Calibration.py`. Relative command-line/environment paths are
 resolved against the working directory.
 
 Use a fresh output directory for each experiment because exports overwrite files
@@ -37,7 +37,7 @@ of the same name. The example prints its summary to the terminal; it does not
 generate a workbook, figures, or tables. Importing the main module creates the
 default results directory even when no simulation is run. The CLI implementation
 is in [`calibration_functions/main.py`](../calibration_functions/main.py); the
-command remains `python Calibration_v3.py`.
+command is `python Calibration.py`.
 
 See the repository [README](../README.md) for commands, model assumptions, and
 metric definitions.

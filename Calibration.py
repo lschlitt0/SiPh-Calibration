@@ -3,8 +3,8 @@
 """Command-line entry point and compatibility imports for calibration.
 
 Implementation functions live in calibration_functions/<function_name>.py.
-Existing imports such as ``from Calibration_v3 import run_dfc_mesh`` remain
-available. See README.md for the file map and direct-import examples.
+Import interfaces with ``from Calibration import run_dfc_mesh``.
+See README.md for the file map and direct-import examples.
 """
 
 from __future__ import annotations

@@ -2,7 +2,7 @@
 
 Research simulations of partitioned calibration for a coupled tuner mesh and
 feedback relocking of a thermally coupled ring bank. Each module-level function
-has its own file in `calibration_functions/`. `Calibration_v3.py` remains the CLI
+has its own file in `calibration_functions/`. `Calibration.py` is the CLI
 entry point and re-exports the existing interfaces. The device models are
 synthetic models, not measured silicon-photonic devices or instrument drivers.
 
@@ -33,12 +33,12 @@ accuracy, tuning power, or experimental performance.
 
 | File | Purpose |
 |---|---|
-| [Calibration_v3.py](Calibration_v3.py) | CLI entry point and compatibility imports for the existing interfaces |
+| [Calibration.py](Calibration.py) | CLI entry point and imports for the calibration interfaces |
 | [calibration_functions/](calibration_functions/) | One module-level function per file, named after that function |
 | [calibration_functions/models.py](calibration_functions/models.py) | Configuration dataclasses, synthetic plant/surrogate classes, counters, and controller classes |
 | [calibration_functions/settings.py](calibration_functions/settings.py) | Import-time output paths and verbosity settings |
 | [calibration_functions/constants.py](calibration_functions/constants.py) | Export field definitions and shared constant mappings |
-| `test_calibration_v3.py` | Compatibility runner that registers the seven calibration tests; no embedded test bodies |
+| `test_calibration.py` | Test runner that registers the seven calibration tests; no embedded test bodies |
 | `test_function_layout.py` | Compatibility runner that registers the four layout/import tests; no embedded test bodies |
 | [calibration_test_functions/](calibration_test_functions/) | One existing test function per same-named file, plus shared loading/path settings in `_support.py` |
 | `examples/example_usage.py` | Small seeded mesh and ring example using the existing function interfaces |
@@ -55,8 +55,8 @@ remain with their classes in `models.py`.
 
 Test bodies follow the same one-function-per-file layout in
 `calibration_test_functions/`. The two root test modules bind those functions
-onto their original `unittest.TestCase` classes, preserving individual test names
-and existing commands. They contain no function definitions. For example,
+onto `unittest.TestCase` classes, preserving individual test method names
+and test discovery. They contain no function definitions. For example,
 `test_tunecheck_probe_invariant` lives in
 [its own file](calibration_test_functions/test_tunecheck_probe_invariant.py).
 
@@ -72,7 +72,7 @@ and existing commands. They contain no function definitions. For example,
 | Figures | [generate_hypergraph_plots](calibration_functions/generate_hypergraph_plots.py), [generate_mesh_plots](calibration_functions/generate_mesh_plots.py), [generate_ring_plots](calibration_functions/generate_ring_plots.py) |
 | Paper exports | [write_paper_mesh_table](calibration_functions/write_paper_mesh_table.py), [write_paper_ring_table](calibration_functions/write_paper_ring_table.py), [write_paper_manifest](calibration_functions/write_paper_manifest.py) |
 
-Existing imports such as `from Calibration_v3 import run_dfc_mesh` remain valid.
+Use `from Calibration import run_dfc_mesh` to import from the main entry point.
 For direct access to an implementation, use
 `from calibration_functions.run_dfc_mesh import run_dfc_mesh`; import classes
 from `calibration_functions.models`. The package `__init__.py` does not re-export
@@ -80,8 +80,8 @@ functions.
 
 Private monkeypatches must target the module where a name is looked up. For
 example, replacing a helper imported by `run_dfc_mesh` requires patching that
-name in `calibration_functions.run_dfc_mesh`, rather than in `Calibration_v3`.
-Assignments to re-exported settings in the compatibility module do not propagate
+name in `calibration_functions.run_dfc_mesh`, rather than in `Calibration`.
+Assignments to re-exported settings in the entry-point module do not propagate
 to the implementation modules. Set `CAL_RESULTS_DIR` and `CAL_VERBOSE` before
 importing the code or starting the CLI to configure their import-time defaults.
 
@@ -160,17 +160,17 @@ The built-in `heuristic` partitioner and `gn` optimizer need no external solver.
 
 ## Running the Code
 
-The main entry point is `Calibration_v3.py`. A small run of all calibration methods
+The main entry point is `Calibration.py`. A small run of all calibration methods
 with explicitly selected built-in solvers is:
 
 ```bash
-python Calibration_v3.py --mesh-size 4 --partitions 2 --rings 4 --ring-cross-talk-sweep=0.06 --partition-solver heuristic --opt-solver gn --results-dir results/small_run
+python Calibration.py --mesh-size 4 --partitions 2 --rings 4 --ring-cross-talk-sweep=0.06 --partition-solver heuristic --opt-solver gn --results-dir results/small_run
 ```
 
 The unchanged full default experiment is:
 
 ```bash
-python Calibration_v3.py
+python Calibration.py
 ```
 
 That default uses a 16-by-16 mesh, four partitions, eight rings, all three mesh
@@ -180,14 +180,14 @@ The global-surrogate case can be substantially more expensive than the small
 example. For a fixed built-in configuration and table/manifest exports, use:
 
 ```bash
-python Calibration_v3.py --paper-profile --results-dir results/paper_profile
+python Calibration.py --paper-profile --results-dir results/paper_profile
 ```
 
 `--paper-profile` calls `apply_paper_profile()` and overrides the experiment
 settings, including seed, sizes, methods, solvers, and sweeps. It preserves the
 chosen output directory.
 
-Use `python Calibration_v3.py --help` for CLI options, `--no-rings` for mesh-only
+Use `python Calibration.py --help` for CLI options, `--no-rings` for mesh-only
 runs, or `--no-mesh` for ring-only runs. No measurement files are required.
 
 ## Calibration Workflow
@@ -248,7 +248,7 @@ attainment, probe/write/iteration counts, and ring settling/peak/RMS metrics.
 It does not create plots, tables, or a workbook. A minimal existing-API call is:
 
 ```python
-from Calibration_v3 import CalibrationConfig, PhysicsParams, run_dfc_mesh
+from Calibration import CalibrationConfig, PhysicsParams, run_dfc_mesh
 
 cfg = CalibrationConfig(
     mesh_size=4, partitions=2, seed=7,
@@ -306,7 +306,7 @@ host execution times vary.
 A supported Cartesian sweep uses semicolons between configuration fields:
 
 ```bash
-python Calibration_v3.py --no-rings --partition-solver heuristic --opt-solver gn --sweep "N=4,6;k=2;seed=1..3" --results-dir results/mesh_sweep
+python Calibration.py --no-rings --partition-solver heuristic --opt-solver gn --sweep "N=4,6;k=2;seed=1..3" --results-dir results/mesh_sweep
 ```
 
 Aliases include `N`, `k`, `rings`, `outer`, and `cross_talk`; configuration field
@@ -421,7 +421,7 @@ Check the existing invariants and extracted-module interfaces with:
 python -m unittest discover -v
 ```
 
-To run either suite separately, use `python -m unittest -v test_calibration_v3`
+To run either suite separately, use `python -m unittest -v test_calibration`
 or `python -m unittest -v test_function_layout`. Direct execution of those two
 Python files also remains supported. Discovery runs each of the 11 tests once.
 

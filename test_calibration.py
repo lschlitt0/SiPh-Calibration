@@ -1,7 +1,7 @@
-"""Compatibility runner for CalibrationV3InvariantTests.
+"""Test runner for CalibrationInvariantTests.
 
 Each test body lives in calibration_test_functions/<test_name>.py.
-Run ``python -m unittest -v test_calibration_v3``.
+Run ``python -m unittest -v test_calibration``.
 """
 
 from __future__ import annotations
@@ -18,8 +18,8 @@ from calibration_test_functions.test_paper_export_and_manifest_invariants import
 from calibration_test_functions.test_ring_probe_rounds_match_trace_length import test_ring_probe_rounds_match_trace_length as _test_ring_probe_rounds_match_trace_length
 
 
-class CalibrationV3InvariantTests(unittest.TestCase):
-    """Bind the extracted functions while retaining the original test IDs."""
+class CalibrationInvariantTests(unittest.TestCase):
+    """Bind the extracted functions while retaining the test method names."""
 
     test_discover_paper_root_dir_prefers_nested_manuscript_folder = _test_discover_paper_root_dir_prefers_nested_manuscript_folder
     test_paper_profile_locks_requested_camera_ready_fields = _test_paper_profile_locks_requested_camera_ready_fields

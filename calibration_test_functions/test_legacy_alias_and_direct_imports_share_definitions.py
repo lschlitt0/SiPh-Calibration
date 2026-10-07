@@ -12,9 +12,9 @@ __test__ = False
 
 
 def test_legacy_alias_and_direct_imports_share_definitions(self) -> None:
-    """The old facade must expose the actual functions and model classes."""
+    """The entry-point facade must expose the actual functions and model classes."""
     spec = importlib.util.spec_from_file_location(
-        "calibration_layout_alias", REPOSITORY_ROOT / "Calibration_v3.py"
+        "calibration_layout_alias", REPOSITORY_ROOT / "Calibration.py"
     )
     self.assertIsNotNone(spec)
     self.assertIsNotNone(spec.loader)

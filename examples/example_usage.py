@@ -1,7 +1,7 @@
 """Run a small seeded mesh calibration and ring-bank relocking simulation.
 
 Run from the repository root with ``python examples/example_usage.py``.
-The functions and result fields are the existing Calibration_v3 interfaces.
+The functions and result fields use the Calibration interfaces.
 The mesh uses normalized residuals; the ring model reports detuning in pm.
 """
 
@@ -16,7 +16,7 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from Calibration_v3 import (  # noqa: E402
+from Calibration import (  # noqa: E402
     CalibrationConfig,
     PhysicsParams,
     run_dfc_mesh,

@@ -21,7 +21,7 @@ def test_repository_paths_and_cli_work_from_another_directory(self) -> None:
         code = (
             "import json, sys; "
             "sys.path.insert(0, sys.argv[1]); "
-            "import Calibration_v3 as cal; "
+            "import Calibration as cal; "
             "print(json.dumps({name: str(getattr(cal, name)) for name in "
             "('SCRIPT_DIR', 'PROJECT_ROOT_DIR', 'PAPER_ROOT_DIR', 'RESULTS_DIR', 'PAPER_DATA_DIR')})); "
             "assert cal.CalibrationConfig().results_dir == cal.RESULTS_DIR; "
@@ -37,7 +37,7 @@ def test_repository_paths_and_cli_work_from_another_directory(self) -> None:
         self.assertEqual(Path(paths["RESULTS_DIR"]), output_dir)
         self.assertEqual(Path(paths["PAPER_DATA_DIR"]), output_dir / "paper_data")
         help_result = subprocess.run(
-            [sys.executable, "-B", str(REPOSITORY_ROOT / "Calibration_v3.py"), "--help"],
+            [sys.executable, "-B", str(REPOSITORY_ROOT / "Calibration.py"), "--help"],
             cwd=work_dir, env=env, text=True, encoding="utf-8", capture_output=True, check=True,
         )
         self.assertIn("--results-dir", help_result.stdout)

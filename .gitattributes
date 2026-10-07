@@ -1,2 +1,9 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize text files to LF in the repository and working tree.
+* text=auto eol=lf
+
+# Preserve binary research artifacts without text conversion or merging.
+*.png binary
+*.pdf binary
+*.xlsx binary
+*.npy binary
+*.npz binary
